@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Visor AR - Prueba</title>
+    
+    <!-- Esta línea importa el motor de Model-Viewer directamente de Google -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+        /* Damos un tamaño al visor */
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Aquí está la magia. Usamos un modelo de prueba (un Astronauta) que Google tiene público -->
+    <!-- Los atributos "ar", "auto-rotate" y "camera-controls" habilitan todas las funciones -->
+    <model-viewer 
+        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+        ios-src="https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+        alt="Un modelo 3D de un Astronauta"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        auto-rotate
+        shadow-intensity="1">
+        
+        <!-- Botón personalizado para entrar a AR -->
+        <button slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; top: 16px; right: 16px; padding: 10px; font-weight: bold; cursor: pointer; box-shadow: 0px 2px 4px rgba(0,0,0,0.25);">
+            👋 Ver en mi espacio (AR)
+        </button>
+    </model-viewer>
+
+</body>
+</html>
